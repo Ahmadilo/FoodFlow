@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home_hero.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="hero-content">
+
+        <!-- Text -->
+        <div class="hero-text">
+            <h1>
+                madabites<br>
+                Delicious food<br>
+                delivered fast
+            </h1>
+
+            <p>
+                Discover fresh meals, juicy burgers, crispy fries, and refreshing drinks —
+                all delivered to your door.
+            </p>
+
+            <div class="hero-actions">
+                <a href="/menu" class="hero-btn primary">Browse Menu</a>
+
+                {% if not session.get('user_id') %}
+                    <a href="/auth/login" class="hero-btn secondary">Login</a>
+                    <a href="/auth/register" class="hero-btn secondary">Create Account</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Image -->
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/FOOD.png') }}" alt="Food">
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

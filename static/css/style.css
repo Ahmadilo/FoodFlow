@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    background-color: #1c1d1d;
+    /* padding: 20px; */
+    margin: 0;
+}
+.navbar {
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.navbar a:hover {
+    text-decoration: underline;
+}
+.container {
+    background: black;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #ccc;
+}
+h1, h2, h3 {
+    margin-top: 0;
+}
+.btn {
+    background: #28a745;
+    padding: 6px 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn:hover {
+    background: #218838;
+}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% if not order %}
+<div class="order-card">
+    <h2>Your Cart</h2>
+    <p>Your cart is empty.</p>
+    <a class="btn" href="/menu">Browse Menu</a>
+</div>
+{% else %}
+<div class="admin-card">
+    <!-- Order Summary Card -->
+    <div class="order-card">
+        <h2>Your Cart</h2>
+    
+        <div class="order-meta">
+            <div class="meta-box">
+                <strong>Status</strong>
+                <span class="status {{ order.order_status }}">
+                    {{ order.order_status }}
+                </span>
+            </div>
+    
+            <div class="meta-box">
+                <strong>Total</strong>
+                ${{ "%.2f"|format(order.total_amount) }}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Items -->
+    <h3>Items in Cart</h3>
+    
+    <div class="menu-container">
+        {% for item in items %}
+        <div class="menu-card">
+    
+            <!-- Image -->
+            <div class="menu-image-wrapper">
+                <img
+                    src="{{ item.menu_item.image_url if item.menu_item.image_url else '/static/images/placeholder.png' }}"
+                    alt="{{ item.menu_item.name }}"
+                    class="menu-image"
+                >
+            </div>
+    
+            <!-- Content -->
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3 class="menu-title">{{ item.menu_item.name }}</h3>
+                    <span class="menu-price">${{ item.unit_price }}</span>
+                </div>
+    
+                <p class="menu-description">
+                    Quantity: {{ item.quantity }}
+                </p>
+    
+                <p>
+                    Subtotal: <strong>${{ "%.2f"|format(item.subtotal) }}</strong>
+                </p>
+    
+                {% if order.order_status == 'pending' %}
+                    <form method="POST" action="/order/item/update/{{ item.id }}">
+                        <input type="number" name="quantity" min="1" value="{{ item.quantity }}" style="width:70px;">
+                        <button class="btn" type="submit">Update</button>
+                    </form>
+    
+                    <a class="btn delete"
+                       href="/order/item/delete/{{ item.id }}"
+                       onclick="return confirm('Remove this item?')">
+                       Remove
+                    </a>
+                {% endif %}
+            </div>
+    
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Actions -->
+    <div class="order-actions">
+        <a class="btn" href="/order/my">View Order History</a>
+    
+        {% if order.order_status == 'pending' %}
+            <a class="btn" href="/order/confirm/{{ order.id }}">
+                Confirm Order
+            </a>
+        {% endif %}
+    </div>
+</div>
+  
+{% endif %}
+
+
+{% endblock %}

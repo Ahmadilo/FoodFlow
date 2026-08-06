@@ -1,0 +1,117 @@
+/* ===============================
+   Menu Page – Card Style
+   =============================== */
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin: 20px auto;      /* ⬅️ هذا المهم */
+    max-width: 1200px;      /* ⬅️ يحدد عرض منطقي */
+    justify-content: center;
+}
+
+
+/* Card */
+.menu-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
+/* Image wrapper */
+.menu-image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+/* Image */
+.menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.menu-card:hover .menu-image {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    transition: opacity .3s ease;
+}
+
+.menu-card:hover .menu-overlay {
+    opacity: 1;
+}
+
+/* Overlay button */
+.overlay-btn {
+    width: 100%;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.overlay-btn:hover {
+    background: #f3f3f3;
+}
+
+/* Content */
+.menu-content {
+    padding: 16px;
+}
+
+/* Header */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 8px;
+}
+
+.menu-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.menu-price {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Description */
+.menu-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Login button */
+.login-btn {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+}

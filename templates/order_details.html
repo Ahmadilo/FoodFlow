@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="order-card">
+
+    <h2>Order #{{ order.id }}</h2>
+
+    <div class="order-meta">
+        <div class="meta-box">
+            <strong>Status</strong>
+            <span class="status {{ order.order_status }}">
+                {{ order.order_status }}
+            </span>
+        </div>
+
+        <div class="meta-box">
+            <strong>Payment</strong>
+            <span class="payment {{ order.payment_status }}">
+                {{ order.payment_status }}
+            </span>
+        </div>
+
+        <div class="meta-box">
+            <strong>Total</strong>
+            ${{ "%.2f"|format(order.total_amount) }}
+        </div>
+    </div>
+
+</div>
+
+
+<h3>Items</h3>
+
+<div class="admin-card">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Unit Price</th>
+                <th>Qty</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.menu_item.name }}</td>
+                <td>${{ item.unit_price }}</td>
+    
+                <td>
+                    {% if order.order_status == 'pending' %}
+                        <!-- Editable Mode -->
+                        <form method="POST" action="/order/item/update/{{ item.id }}">
+                            <input type="number" name="quantity" min="1" value="{{ item.quantity }}" style="width:60px;">
+                            <button class="btn" type="submit">Update</button>
+                        </form>
+                    {% else %}
+                        <!-- Read-only Mode -->
+                        {{ item.quantity }}
+                    {% endif %}
+                </td>
+    
+                <td>${{ item.subtotal }}</td>
+    
+                <td>
+                    {% if order.order_status == 'pending' %}
+                        <a class="btn" style="background:#dc2626;"
+                        href="/order/item/delete/{{ item.id }}"
+                        onclick="return confirm('Remove this item?')">
+                        Remove
+                        </a>
+                    {% else %}
+                        <!-- No actions allowed -->
+                        <span style="color:#888;">No actions</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+</div>
+
+<div class="order-actions">
+    <a class="btn" href="/order/my">Back to My Orders</a>
+
+    {% if order.order_status == 'pending' %}
+        <a class="btn" href="/order/confirm/{{ order.id }}">
+            Confirm Order
+        </a>
+    {% endif %}
+
+    {% if order.order_status == 'delivered' and order.payment_status == 'pending' %}
+        <a class="btn" href="/order/pay/{{ order.id }}">
+            Pay Now
+        </a>
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}

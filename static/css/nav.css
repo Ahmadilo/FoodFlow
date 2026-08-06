@@ -1,0 +1,45 @@
+/* ===============================
+   Navbar – Clean & Minimal
+   =============================== */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: black;
+    padding: 14px 24px;
+
+    border-bottom: 1px solid #6b6c6e;
+    border-radius: 0;
+}
+
+/* الروابط */
+.navbar a {
+    color: #9194a3;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+/* Hover بسيط جدًا */
+.navbar a:hover {
+    background: #f3f4f6;
+}
+
+/* Logout */
+.navbar a[href*="logout"] {
+    color: #b91c1c;
+}
+
+/* Admin links */
+.navbar a[href*="admin"] {
+    color: #4b6487;
+}
+
+/* فصل العناصر لليمين (اختياري) */
+.navbar .right {
+    margin-left: auto;
+}

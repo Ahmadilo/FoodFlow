@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="admin-title">Edit Menu Item</h1>
+
+<div class="admin-card">
+
+    <form method="POST" class="admin-form" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Item Name</label>
+            <input type="text" name="name" value="{{ item.name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" name="category" value="{{ item.category }}" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Description</label>
+            <textarea name="description">{{ item.description }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Price ($)</label>
+            <input type="number" step="0.01" name="price" value="{{ item.price }}" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Current Image</label>
+            {% if item.image_url %}
+                <img src="{{ item.image_url }}" 
+                    alt="Item Image"
+                    style="max-width:180px; border-radius:8px; margin-bottom:10px;">
+            {% else %}
+                <p style="color:#666;">No image uploaded</p>
+            {% endif %}
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Change Image</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+
+
+        <div style="grid-column: span 2; display:flex; gap:10px;">
+            <button class="btn" type="submit">Save Changes</button>
+            <a class="btn" href="/admin/menu" style="background:#6b7280;">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

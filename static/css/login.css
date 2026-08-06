@@ -1,0 +1,81 @@
+/* ===============================
+   Login Page Styling
+   =============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+/* تعطيل container الافتراضي لهذه الصفحة فقط */
+.container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+/* بطاقة تسجيل الدخول */
+.login-container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+/* العنوان */
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* الحقول */
+.login-container label {
+    font-weight: bold;
+    color: #444;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* focus */
+.login-container input:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+}
+
+/* زر */
+.login-container .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* أسفل الفورم */
+.login-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-footer a {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}

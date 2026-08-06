@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="admin-title">My Orders</h1>
+
+{% if orders %}
+<div class="admin-card">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Date</th>
+                <th style="width:140px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>${{ "%.2f"|format(order.total_amount) }}</td>
+                <td>{{ order.order_status }}</td>
+                <td>{{ order.payment_status }}</td>
+                <td>{{ order.order_date }}</td>
+                <td>
+                    <div class="table-actions">
+                        <a class="btn" href="/order/view/{{ order.id }}">View</a>
+                        <a class="btn delete"
+                           href="/order/delete/{{ order.id }}"
+                           onclick="return confirm('Delete this order?')">
+                           Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>You have no orders yet.</p>
+{% endif %}
+
+{% endblock %}

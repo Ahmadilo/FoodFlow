@@ -1,0 +1,50 @@
+foodProject
+├── config.py
+├── flask_app.py
+├── models/
+│   ├── database.py
+│   ├── models.py
+│   └── __init__.py
+├── requirements.txt
+├── routes/
+│   ├── admin_routes.py
+│   ├── auth_routes.py
+│   ├── delivery_routes.py
+│   ├── menu_routes.py
+│   └── order_routes.py
+├── snapshot.txt
+├── static/
+│   ├── css/
+│   │   ├── admin_menu.css
+│   │   ├── card.css
+│   │   ├── home.css
+│   │   ├── home_hero.css
+│   │   ├── login.css
+│   │   ├── menu.css
+│   │   ├── nav.css
+│   │   ├── register.css
+│   │   └── style.css
+│   ├── images/
+│   │   ├── 3da808a3cc43452ea3aa065a2032f828.png
+│   │   ├── 8683882ab1bb4aa48d791b5ec9aeebcf.png
+│   │   ├── f0d4251923d34d1fa9f68fc0474d365a.png
+│   │   ├── FOOD.png
+│   │   └── placeholder.png
+│   └── js/
+│       └── menu.js
+└── templates/
+    ├── admin_edit_menu.html
+    ├── admin_edit_user.html
+    ├── admin_menu.html
+    ├── admin_orders.html
+    ├── admin_users.html
+    ├── base.html
+    ├── cart.html
+    ├── delivery_orders.html
+    ├── index.html
+    ├── login.html
+    ├── menu.html
+    ├── my_orders.html
+    ├── order_details.html
+    ├── payment_page.html
+    └── register.html

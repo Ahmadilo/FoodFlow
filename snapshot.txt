@@ -1,0 +1,11 @@
+foodProject
+├── models/ (6 Files)
+│   └── __pycache__/ (3 Files)
+├── routes/ (10 Files)
+│   └── __pycache__/ (5 Files)
+├── static/ (15 Files)
+│   ├── css/ (9 Files)
+│   ├── images/ (5 Files)
+│   └── js/ (1 Files)
+├── templates/ (15 Files)
+└── __pycache__/ (1 Files)

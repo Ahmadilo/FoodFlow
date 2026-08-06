@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="admin-title">Admin – Manage Menu</h1>
+
+<!-- Add Item Form -->
+<div class="admin-card">
+    <h2>Add New Item</h2>
+
+    <form method="POST" class="admin-form" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Item Name</label>
+            <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" name="category" required>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Price ($)</label>
+            <input type="number" step="0.01" name="price" required>
+        </div>
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Item Image</label>
+            <input type="file" name="image" accept="image/*">
+        </div>
+
+        <button class="btn" type="submit">Add Item</button>
+
+    </form>
+</div>
+
+<!-- Existing Items -->
+<div class="admin-card">
+    <h2>Existing Menu Items</h2>
+
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th style="width:140px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>${{ "%.2f"|format(item.price) }}</td>
+                <td>{{ item.category }}</td>
+                <td>
+                    <div class="table-actions">
+                        <a class="btn" href="/admin/menu/edit/{{ item.id }}">Edit</a>
+                        <a class="btn delete"
+                           href="/admin/menu/delete/{{ item.id }}"
+                           onclick="return confirm('Delete this item?')">
+                           Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+ptree show --log test.ptree
+
+foodProject
+├── cleanup_orders_non_customers.py
+├── config.py
+├── flask_app.py
+├── models/
+│   ├── database.py
+│   ├── models.py
+│   ├── __init__.py
+│   └── __pycache__/
+│       ├── database.cpython-313.pyc
+│       ├── models.cpython-313.pyc
+│       └── __init__.cpython-313.pyc
+├── project_snapshot.txt
+├── requirements.txt
+├── routes/
+│   ├── admin_routes.py
+│   ├── auth_routes.py
+│   ├── delivery_routes.py
+│   ├── menu_routes.py
+│   ├── order_routes.py
+│   └── __pycache__/
+│       ├── admin_routes.cpython-313.pyc
+│       ├── auth_routes.cpython-313.pyc
+│       ├── delivery_routes.cpython-313.pyc
+│       ├── menu_routes.cpython-313.pyc
+│       └── order_routes.cpython-313.pyc
+├── snapshot.txt
+├── static/
+│   ├── css/
+│   │   ├── admin_menu.css
+│   │   ├── card.css
+│   │   ├── home.css
+│   │   ├── home_hero.css
+│   │   ├── login.css
+│   │   ├── menu.css
+│   │   ├── nav.css
+│   │   ├── register.css
+│   │   └── style.css
+│   ├── images/
+│   │   ├── 3da808a3cc43452ea3aa065a2032f828.png
+│   │   ├── 4172aacf9e6c45e29e4a0de90c7637d8.png
+│   │   ├── 4c42705e16044c6e8b9e30c4dc22ba37.jpeg
+│   │   ├── 5188c7b469b94a7097e2fdc98b721135.png
+│   │   ├── 518ce3cd-14f1-4433-a4b9-de7d8f29226f.jfif
+│   │   ├── 5a69f91697bb460ab73e746e947fc4e7.png
+│   │   ├── 61e77a53-6edc-47da-8c94-b27f1ae92c77.jfif
+│   │   ├── 6e583ad2713648caad7a37a1573f7ae9.png
+│   │   ├── 8683882ab1bb4aa48d791b5ec9aeebcf.png
+│   │   ├── 893eaf9c4e9f41b48fae920213b65ed8.png
+│   │   ├── ChatGPT_Image_Dec_31_2025_04_11_53_PM.png
+│   │   ├── ChatGPT_Image_Dec_31_2025_12_42_06_PM.png
+│   │   ├── f0d4251923d34d1fa9f68fc0474d365a.png
+│   │   ├── FOOD.png
+│   │   └── placeholder.png
+│   └── js/
+│       └── menu.js
+├── templates/
+│   ├── admin_edit_menu.html
+│   ├── admin_edit_user.html
+│   ├── admin_menu.html
+│   ├── admin_orders.html
+│   ├── admin_users.html
+│   ├── base.html
+│   ├── cart.html
+│   ├── delivery_orders.html
+│   ├── index.html
+│   ├── login.html
+│   ├── menu.html
+│   ├── my_orders.html
+│   ├── order_details.html
+│   ├── payment_page.html
+│   └── register.html
+├── test.ptree
+└── __pycache__/
+    ├── config.cpython-313.pyc
+    └── flask_app.cpython-313.pyc

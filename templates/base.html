@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title if title else "Food Ordering System" }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="/">Home</a>
+    <a href="/menu">Menu</a>
+
+    {% if session.get('user_id') %}
+        <!-- Cart (الطلب المفتوح) -->
+        <a href="/order/cart">🛒</a>
+
+        <!-- Order history -->
+        <a href="/order/my">My Orders</a>
+
+        {% if is_admin %}
+            <a href="/admin/menu">Admin Menu</a>
+            <a href="/admin/orders">Admin Orders</a>
+            <a href="/admin/users">Admin Users</a>
+        {% endif %}
+
+        {% if is_delivery %}
+            <a href="/delivery/orders">Delivery Orders</a>
+        {% endif %}
+
+        <a href="/auth/logout" style="color:#dc2626;">Logout</a>
+
+    {% else %}
+        <a href="/auth/login">Login</a>
+    {% endif %}
+</div>
+
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

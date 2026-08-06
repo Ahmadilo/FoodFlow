@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="admin-title">Edit User</h1>
+
+<div class="admin-card">
+
+    <form method="POST" class="admin-form">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" value="{{ user.name }}" disabled>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" value="{{ user.email }}" disabled>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+            <label>Role</label>
+            <select name="role" required>
+                <option value="customer" {% if user.role == "customer" %}selected{% endif %}>
+                    Customer
+                </option>
+                <option value="admin" {% if user.role == "admin" %}selected{% endif %}>
+                    Admin
+                </option>
+                <option value="delivery" {% if user.role == "delivery" %}selected{% endif %}>
+                    Delivery
+                </option>
+            </select>
+        </div>
+
+        <div style="grid-column: span 2; display:flex; gap:10px;">
+            <button class="btn" type="submit">Save Changes</button>
+            <a class="btn" href="/admin/users" style="background:#6b7280;">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

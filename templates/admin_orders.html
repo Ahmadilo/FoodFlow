@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="admin-title">All Orders</h1>
+
+<div class="admin-card">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Payment</th>
+                <th>Date</th>
+                <th>Next</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.user.name }}</td>
+                <td>${{ "%.2f"|format(order.total_amount) }}</td>
+                <td>{{ order.order_status }}</td>
+                <td>{{ order.payment_status }}</td>
+                <td>{{ order.order_date }}</td>
+                <td>
+                    {% if order.order_status != 'delivered' %}
+                        <a class="btn" href="/admin/orders/next/{{ order.id }}">
+                            Next
+                        </a>
+                    {% else %}
+                        <span style="color:green; font-weight:bold;">✓ Done</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

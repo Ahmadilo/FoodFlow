@@ -1,0 +1,84 @@
+/* ===============================
+   Home Hero Section
+   =============================== */
+
+.hero-section {
+    padding: 60px 0;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Text box */
+.hero-text {
+    background: #B8F44A;
+    padding: 40px;
+    border-radius: 22px;
+    width: 40%;
+}
+
+.hero-text h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 28px;
+}
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.hero-btn.primary {
+    background: #000;
+    color: #fff;
+}
+
+.hero-btn.primary:hover {
+    background: #222;
+}
+
+.hero-btn.secondary {
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+}
+
+.hero-btn.secondary:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Image */
+.hero-image {
+    width: 60%;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+}

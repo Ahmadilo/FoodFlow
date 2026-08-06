@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_menu.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="order-card">
+
+    <h2>Payment – Order #{{ order.id }}</h2>
+
+    <div class="order-meta">
+        <div class="meta-box">
+            <strong>Status</strong>
+            <span class="status {{ order.order_status }}">
+                {{ order.order_status }}
+            </span>
+        </div>
+
+        <div class="meta-box">
+            <strong>Total Amount</strong>
+            ${{ "%.2f"|format(order.total_amount) }}
+        </div>
+
+        <div class="meta-box">
+            <strong>Payment</strong>
+            <span class="payment pending">
+                Pending
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<div class="admin-card">
+
+    <h3>Complete Your Payment</h3>
+
+    <p style="color:#555; margin-bottom:20px;">
+        This is a simulated payment screen for educational purposes.
+        Click the button below to confirm payment.
+    </p>
+
+    <div class="order-actions">
+        <a class="btn" href="/order/pay/confirm/{{ order.id }}">
+            Confirm Payment
+        </a>
+
+        <a class="btn" href="/order/my" style="background:#6b7280;">
+            Cancel
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}
